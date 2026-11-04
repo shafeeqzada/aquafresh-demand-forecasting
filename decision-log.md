@@ -12,7 +12,7 @@ I chose **CSV** (data.csv) to store the daily water delivery demand data.
 | Parquet | Fast, small file size | Needs extra library, not human-readable |
 
 ## Why CSV
-- Data is small (6,570 rows: 730 days x 3 regions x 3 product types), so speed is not an issue.
+- Data is small (730 rows: one row per day, with region and product type chosen randomly), so speed is not an issue.
 - pandas loads it in one line: `pd.read_csv("data.csv")`.
 - Mentor and others can open it easily on GitHub.
 
