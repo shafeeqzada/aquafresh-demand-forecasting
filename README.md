@@ -15,3 +15,11 @@ pip install pandas
 python generate_data.py
 
 The random seed is fixed (42), so the volumes are the same every time. Dates are counted back from today.
+
+## Task 2: Baseline forecast
+- `baseline.ipynb`: 7-day moving-average baseline (80/20 train/test split by index)
+- `predictions.csv`: test predictions (date, actual, baseline_pred)
+- `report.md`: MAE and MAPE with a short interpretation
+
+### Run it
+Open baseline.ipynb and run all cells.
