@@ -23,3 +23,14 @@ The random seed is fixed (42), so the volumes are the same every time. Dates are
 
 ### Run it
 Open baseline.ipynb and run all cells.
+
+
+## Task 3: Prophet model with rolling back-test
+- `prophet_model.ipynb`: fits Prophet on the train data and runs a rolling back-test (7-day horizon, history grows with each fold)
+- `prophet_model.pkl`: saved Prophet model
+- `backtest_results.csv`: date, actual, prophet_pred for the test period
+- `comparison.md`: baseline vs Prophet MAE and MAPE
+
+### Run it
+pip install prophet
+Open prophet_model.ipynb and run all cells.
