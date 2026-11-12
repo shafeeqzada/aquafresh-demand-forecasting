@@ -34,3 +34,12 @@ Open baseline.ipynb and run all cells.
 ### Run it
 pip install prophet
 Open prophet_model.ipynb and run all cells.
+
+## Task 4: Error analysis by region and product
+- `error_analysis.ipynb`: merges Prophet predictions with region and product_type, computes error per segment
+- `error_by_region.csv`, `error_by_product.csv`: MAE and MAPE per segment
+- `region_error.png`, `product_error.png`: bar charts
+- `analysis.md`: which segments have the highest errors
+
+### Run it
+Open error_analysis.ipynb and run all cells.
