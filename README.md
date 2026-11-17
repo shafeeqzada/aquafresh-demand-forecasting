@@ -43,3 +43,15 @@ Open prophet_model.ipynb and run all cells.
 
 ### Run it
 Open error_analysis.ipynb and run all cells.
+
+
+## Task 5: Streamlit dashboard and PDF report
+- `app.py`: dashboard with sidebar filters (region, product type, date range), actual vs Prophet line chart, error bar chart, and a PDF download button
+- `requirements.txt`: packages for Streamlit Cloud
+
+### Run it
+pip install -r requirements.txt
+streamlit run app.py
+
+
+Note: each region/product combination has only a few test days (each date has one region and one product), so charts and metrics for a single segment are based on few points.
