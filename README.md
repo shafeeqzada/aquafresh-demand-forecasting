@@ -35,7 +35,7 @@ On every push to `main`, GitHub builds the Docker image and pushes it to Docker 
 Replace or regenerate `data.csv`, re-run the notebooks (`baseline.ipynb`, `prophet_model.ipynb`, `error_analysis.ipynb`) to refresh the CSV files, then push to GitHub. The Docker image and the Streamlit app update automatically.
 
 ## Security note
-No passwords, tokens or API keys are stored in this repository. Docker Hub credentials are kept in GitHub Secrets (`DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`) and are never written in code or documentation. Do not commit secrets to the repo.
+No passwords, tokens or API keys are stored in this repository. Docker Hub credentials are kept in GitHub Secrets (`DOCKERHUB_USERNAME`, `shafeeq787`) and are never written in code or documentation. Do not commit secrets to the repo.
 
 # Project tasks
 
