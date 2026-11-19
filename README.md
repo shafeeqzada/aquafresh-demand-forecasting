@@ -1,5 +1,44 @@
 # AquaFresh Water Delivery Demand Forecasting System
 
+![CI](https://github.com/shafeeqzada/aquafresh-demand-forecasting/actions/workflows/ci.yml/badge.svg)
+
+## Project overview
+This project forecasts daily water delivery demand. It generates 730 days of synthetic demand data, builds a 7-day moving-average baseline and a Prophet model with a rolling back-test, analyses errors by region and product type, and shows everything in a Streamlit dashboard with a PDF report download.
+
+**Live dashboard:** [https://aquafresh-demand-forecasting.streamlit.app/]
+
+## Setup
+1. Install Python 3.11 and Git.
+2. Download the project: `git clone https://github.com/shafeeqzada/aquafresh-demand-forecasting.git`
+3. Open the folder and run: `pip install -r requirements.txt`
+
+## Regenerate the data
+`python generate_data.py`
+This creates `data.csv` (730 rows, one per day). The random seed is fixed, so results are repeatable.
+
+## Run the dashboard locally
+`streamlit run app.py`
+Open http://localhost:8501
+
+## Run with Docker
+1. Install Docker Desktop.
+2. Build: `docker build -t aquafresh-demand-forecasting .`
+3. Run: `docker run -p 8501:8501 aquafresh-demand-forecasting`
+4. Open http://localhost:8501
+
+Or use the ready image from Docker Hub: `docker run -p 8501:8501 YOUR_DOCKERHUB_USERNAME/aquafresh-demand-forecasting:latest`
+
+## CI (GitHub Actions)
+On every push to `main`, GitHub builds the Docker image and pushes it to Docker Hub. The badge above shows whether the last build passed.
+
+## How to update the forecast
+Replace or regenerate `data.csv`, re-run the notebooks (`baseline.ipynb`, `prophet_model.ipynb`, `error_analysis.ipynb`) to refresh the CSV files, then push to GitHub. The Docker image and the Streamlit app update automatically.
+
+## Security note
+No passwords, tokens or API keys are stored in this repository. Docker Hub credentials are kept in GitHub Secrets (`DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`) and are never written in code or documentation. Do not commit secrets to the repo.
+
+# Project tasks
+
 Task 1: Storage decision and synthetic demand data.
 
 ## What this project has
@@ -55,3 +94,10 @@ streamlit run app.py
 
 
 Note: each region/product combination has only a few test days (each date has one region and one product), so charts and metrics for a single segment are based on few points.
+
+
+## Task 6: Docker, CI and deployment
+- `Dockerfile`: builds the image and runs the app on port 8501
+- `.dockerignore`: files Docker should skip
+- `.github/workflows/ci.yml`: builds the image and pushes it to Docker Hub on every push
+- Live dashboard and run instructions: see the sections at the top of this README
